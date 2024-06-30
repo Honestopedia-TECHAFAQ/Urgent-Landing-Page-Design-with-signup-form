@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-Travel Game Landing Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial, sans-serif';
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://your-background-image-url.com/your-image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            animation: slideInFromLeft 1.5s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+            animation: slideInFromRight 1.5s ease-out;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        .signup-form input[type="email"] {
+            padding: 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .signup-form button {
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .signup-form button:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .signup-form input[type="email"],
+            .signup-form button {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Time-Travel Adventure!</h1>
+            <p>Join us on an epic journey through time. Discover new worlds and unlock the mysteries of the past, present, and future.</p>
+            <form action="https://YOUR_MAILCHIMP_URL" method="post" class="signup-form">
+                <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.querySelector('.signup-form').addEventListener('submit', function(e) {
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
